@@ -13,12 +13,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100%;
+            margin-top: 110px;
         }
 
         .styled-table {
             height: 70%;
             width: 60%;
+            margin-top: 240px;
             border-collapse: collapse;
             margin: 25px 0;
             font-size: 0.9em;
@@ -68,8 +70,6 @@
             border: none;
         }
     </style>
-
-    <main>
         <div class="example">
             <table class="styled-table">
                 <thead>
@@ -111,5 +111,4 @@
                 </tbody>
             </table>
         </div>
-    </main>
 @endsection

@@ -19,6 +19,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .overflow {
+            height: 100vh;
+            overflow: auto;
+        }
+        .py-4 {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -66,8 +76,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -82,7 +92,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 overflow">
             @yield('content')
         </main>
     </div>
