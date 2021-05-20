@@ -11,10 +11,10 @@
     <style>
         .example {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            margin-top: 110px;
+            margin-top: 10px;
         }
 
         .styled-table {
@@ -71,6 +71,9 @@
         }
     </style>
         <div class="example">
+            <div>
+                <a href="/user">Filtra per Autore</a>
+            </div>
             <table class="styled-table">
                 <thead>
                     <tr>

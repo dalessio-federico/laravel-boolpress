@@ -17,6 +17,9 @@ Route::get('/', 'HomeController@index');
 
 Route::resource('/post', 'PostController');
 
+Route::get('/user', 'UserController@index'  );
+Route::get('/user{id}', 'UserController@show')->name('user.show');
+
 Auth::routes(/*['register'=>FALSE] per togliere la parte di registrazione*/);
 
 Route::prefix('admin')
