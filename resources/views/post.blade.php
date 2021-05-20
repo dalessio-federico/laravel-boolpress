@@ -89,7 +89,7 @@
                                 {{ $post["title"] }}
                             </a>
                         </td>
-                        <td>{{ $post["author"] }}</td>
+                        <td>{{ $post->user->name }}</td>
                         <td>{{ $post["updated_at"] }}</td>
                         <td>{{ $post["created_at"] }}</td>
                         <td>

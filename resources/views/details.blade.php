@@ -4,6 +4,7 @@
 
 
 @section('content')
+
     <style>
         .content {
             display: flex;
@@ -18,6 +19,10 @@
 
         .title {
             margin-bottom: 25px;
+        }
+        .title h2 {
+            font-size: 42px;
+            text-transform: uppercase;
         }
         .title h4 span {
             font-size: 12px;
@@ -40,10 +45,10 @@
         <div class="content">
             <div class="title">
                 <h2>{{ $post["title"] }}</h2>
-                <h4><span>Author :</span> {{ $post["author"] }}</h4>
+                <h4><span>Author :</span> {{ $post->user->name }}</h4>
             </div>
             <div class="postContent">
-                <p>{{ $post["content"] }}</p>
+                <p>{{ $post->content }}</p>
             </div>
             <div class="timeInfo">
                 <span> Creation : {{ $post["created_at"] }}</span>

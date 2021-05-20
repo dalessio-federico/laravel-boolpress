@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index');
 
 Route::resource('/post', 'PostController');
 
-Auth::routes();
+Auth::routes(/*['register'=>FALSE] per togliere la parte di registrazione*/);
 
 Route::prefix('admin')
         ->namespace('Admin')

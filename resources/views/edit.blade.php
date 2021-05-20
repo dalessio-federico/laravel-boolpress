@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titolo', $post["title"] )
+@section('titolo', "modifaca".$post["title"] )
 
 
 @section('content')
@@ -34,8 +34,6 @@
     
         <label for="title">Titolo</label>
         <input type="text" name="title" value="{{ $post["title"] }}">
-        <label for="author">Autore</label>
-        <input type="text" name="author" value="{{ $post["author"] }}">
         <label for="content">Contenuto</label>
         <textarea name="content" cols="30" rows="10"> {{ $post["content"] }} </textarea>
         <input type="submit" onclick="return confirm('Sicuro di voler modificare il Post?')" value="modifica">

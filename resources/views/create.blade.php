@@ -33,8 +33,6 @@
     
         <label for="title">Titolo</label>
         <input type="text" name="title" placeholder="Inserisci il titolo">
-        <label for="author">Autore</label>
-        <input type="text" name="author" placeholder="Inserisci l'autore">
         <label for="content">Contenuto</label>
         <textarea name="content" cols="30" rows="10" placeholder="Metti qui il tuo contenuto"></textarea>
         <input type="submit" onclick="return confirm('Confermare la creazione?')" value="Crea Nuovo Post">

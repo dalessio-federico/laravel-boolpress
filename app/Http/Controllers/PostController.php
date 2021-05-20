@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -43,13 +44,24 @@ class PostController extends Controller
 
         $request->validate([
             "title"=> "required|unique:posts|max:50",
-            "author"=> "required|string|max:20",
             "content"=> "required|string",
         ]);
 
         $newPost = new Post;
 
         $newPost->fill($data);
+
+        $slug = Str::slug($newPost->title, '-');
+            $slugBase = $slug;
+            $existingPost = Post::where('slug', $slug)->first();
+            $counter = 1;
+            while($existingPost) {
+                $slug = $slugBase . '-' . $counter;
+                $counter++;
+                $existingPost = Post::where('slug', $slug)->first();
+            };
+
+        $newPost->slug = $slug;
 
         $newPost->save();
 

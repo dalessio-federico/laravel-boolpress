@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('titolo')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -40,10 +40,19 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @if (Route::has('login'))
+                            <div class="top-right links">
+                            @auth
+                                <a href="{{ url('/admin') }}">Home</a>
+                                @else
+                                <a href="{{ route('login') }}">Login</a>
+                                @if (Route::has('register'))
+                                <a href="{{ route('register') }}">Register</a>
+                                @endif
+                            @endauth
+                            </div>
+                        @endif
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
