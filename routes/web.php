@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('/post', 'PostController');
+Route::resource('/post', 'PostController',['parameters' => ['post' => 'slug']]);
 
-Route::get('/user', 'UserController@index'  );
+Route::get('/user', 'UserController@index');
 Route::get('/user{id}', 'UserController@show')->name('user.show');
 
 Auth::routes(/*['register'=>FALSE] per togliere la parte di registrazione*/);

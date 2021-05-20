@@ -88,7 +88,7 @@
                     @foreach ($posts as $post)
                     <tr>
                         <td> 
-                            <a href="{{ route('post.show', ['post' => $post->id]) }}">
+                            <a href="{{ route('post.show', ['slug' => $post->slug]) }}">
                                 {{ $post["title"] }}
                             </a>
                         </td>
@@ -97,12 +97,12 @@
                         <td>{{ $post["created_at"] }}</td>
                         <td>
                             <div class="editButton">
-                                <a href="{{ route('post.edit', ['post' => $post->id]) }}">
+                                <a href="{{ route('post.edit', ['slug' => $post->id]) }}">
                                     <button>Edit</button>
                                 </a>
                             </div>
                             <div class="deleteButton">
-                                <form action="{{route('post.destroy',['post' => $post->id])}}" method="post">
+                                <form action="{{route('post.destroy',['slug' => $post->id])}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" onclick="return confirm('Sei sicuro di Cancellare il Post?')"><i class="fas fa-times"></i></button>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titolo', "modifaca".$post["title"] )
+@section('titolo')
 
 
 @section('content')
@@ -18,7 +18,7 @@
 </style>
 
 <div class="container">
-    <form action="{{route('post.update',['post' => $post->id])}}" method="post">
+    <form action="{{route('post.update',['slug' => $post->slug])}}" method="post">
 
         @if ($errors->any())
             <div class="alert alert-danger">
