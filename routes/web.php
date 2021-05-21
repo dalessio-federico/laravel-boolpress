@@ -13,18 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
 
-Route::resource('/post', 'PostController',['parameters' => ['post' => 'slug']]);
-
-Route::get('/user', 'UserController@index');
-Route::get('/user{id}', 'UserController@show')->name('user.show');
-
-Auth::routes(/*['register'=>FALSE] per togliere la parte di registrazione*/);
+Auth::routes();
 
 Route::prefix('admin')
         ->namespace('Admin')
         ->middleware('auth')
         ->group(function () {
-            Route::get('/', 'HomeController@index')->name('home');
+            Route::get('/', 'HomeController@index')->name('admin_home');
         });
+
+Route::get('/', 'HomeController@index')->name('guest_home');

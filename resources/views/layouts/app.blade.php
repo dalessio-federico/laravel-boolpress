@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('titolo')</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -15,20 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    @yield('links')
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        .overflow {
-            height: 100vh;
-            overflow: auto;
-        }
-        .py-4 {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-        }
-    </style>
 </head>
 <body>
     <div id="app">
@@ -50,19 +39,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @if (Route::has('login'))
-                            <div class="top-right links">
-                            @auth
-                                <a href="{{ url('/admin') }}">Home</a>
-                                @else
-                                <a href="{{ route('login') }}">Login</a>
-                                @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Register</a>
-                                @endif
-                            @endauth
-                            </div>
-                        @endif
                         @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -76,8 +56,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -92,7 +72,7 @@
             </div>
         </nav>
 
-        <main class="py-4 overflow">
+        <main class="py-4">
             @yield('content')
         </main>
     </div>
