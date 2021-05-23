@@ -23,6 +23,19 @@ Route::prefix('admin')
         ->middleware('auth')
         ->group(function () {
             Route::get('/', 'HomeController@index')->name('admin_home');
+            Route::resource('/posts', 'PostController')->names([
+                'store'=>"admin.posts.store",
+                'index'=>"admin.posts.index",
+                'create'=>"admin.posts.create",
+                'destroy'=>"admin.posts.destroy",
+                'update'=>"admin.posts.update",
+                'show'=>"admin.posts.show",
+                'edit'=>"admin.posts.edit"
+            ]);
+            Route::resource('post', PostController::class)->parameters([
+                'post' => 'slug'
+            ]);
+            
         });
 
 
